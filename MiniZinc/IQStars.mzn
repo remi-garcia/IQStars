@@ -524,8 +524,8 @@ array[1..nb_pieces] of var int: piece_position;
 
 constraint {1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26} subset (positions_blue[piece_position[1]] union positions_green[piece_position[2]] union positions_yellow[piece_position[3]] union positions_red[piece_position[4]] union positions_pink[piece_position[5]] union positions_orange[piece_position[6]] union positions_purple[piece_position[7]]);
 
-constraint 3 in positions_yellow[piece_position[3]];
-constraint 5 in positions_orange[piece_position[6]];
+%constraint 3 in positions_yellow[piece_position[3]];
+%constraint 5 in positions_orange[piece_position[6]];
 
 solve satisfy;
 
