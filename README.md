@@ -64,5 +64,5 @@ using Pkg
 Pkg.add("Images")
 Pkg.add("ImageDraw")
 
-include("iqstars.jl")
+include("src/iqstars.jl")
 main()

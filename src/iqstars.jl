@@ -120,7 +120,7 @@ end
 
 
 function solving_iqstarsmzn()
-    run(`minizinc --all-solutions --solver Chuffed --output-to-file $(@__DIR__)/iqstars_solutions.txt $(@__DIR__)/iqstars.mzn`)
+    run(`minizinc --all-solutions --solver Chuffed --output-to-file $(@__DIR__)/../solutions/iqstars_solutions.txt $(@__DIR__)/iqstars.mzn`)
     return nothing
 end
 
@@ -129,9 +129,9 @@ function main()
     generate_data()
     solving_iqstarsmzn()
     rm("$(@__DIR__)/iqstars.mzn")
-    save_img_solutions("$(@__DIR__)/iqstars_solutions.txt")
+    save_img_solutions("$(@__DIR__)/../solutions/iqstars_solutions.txt")
 
     println("Is there a god problem?")
-    println(is_there_a_god("$(@__DIR__)/iqstars_solutions.txt"))
+    println(is_there_a_god("$(@__DIR__)/../solutions/iqstars_solutions.txt"))
     return nothing
 end

@@ -64,7 +64,7 @@ function save_img_solutions(filename::String)
     solutions::Vector{String} = split(read(filename, String), "\n----------\n")
     for i in 1:(length(solutions)-1)
         img = solutionstr_to_image(solutions[i])
-        save("$(@__DIR__)/solutions/solution_$i.png", img)
+        save("$(@__DIR__)/../solutions/solution_$i.png", img)
     end
     return nothing
 end
