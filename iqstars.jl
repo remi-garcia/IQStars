@@ -1,3 +1,5 @@
+include("$(@__DIR__)/read_solutions.jl")
+
 function get_all_possible_positions(piece::Vector{Int}, starting_pos::Int)
     possible_positions = Vector{Set{Int}}()
     for current_rotation in 0:5
@@ -88,7 +90,7 @@ function generate_data()
         data *= "];\n\n"
     end
 
-    filename = "iqstars.mzn"
+    filename = "$(@__DIR__)/iqstars.mzn"
     open(filename, "w") do f
         write(f, data)
         write(f, """
@@ -118,7 +120,7 @@ end
 
 
 function solving_iqstarsmzn()
-    run(`minizinc --all-solutions --solver Chuffed --output-to-file iqstars_solutions.txt iqstars.mzn`)
+    run(`minizinc --all-solutions --solver Chuffed --output-to-file $(@__DIR__)/iqstars_solutions.txt $(@__DIR__)/iqstars.mzn`)
     return nothing
 end
 
@@ -126,6 +128,10 @@ end
 function main()
     generate_data()
     solving_iqstarsmzn()
-    rm("iqstars.mzn")
+    rm("$(@__DIR__)/iqstars.mzn")
+    save_img_solutions("$(@__DIR__)/iqstars_solutions.txt")
+
+    println("Is there a god problem?")
+    println(is_there_a_god("$(@__DIR__)/iqstars_solutions.txt"))
     return nothing
 end
