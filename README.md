@@ -57,7 +57,7 @@ If no constraints are added we can enumerate all the possible fillings of the ga
 This has been done and from the results we can see that God challenges do not exist: for every starting position with a single cell covered there exists multiple solutions.
 
 
-### Run this code
+### To run this code
 
 ```julia
 using Pkg
