@@ -28,7 +28,7 @@ Then, for each piece and for each cell of the game board we check the six rotati
 If that leads to a valid position -- meaning that the piece is totally on the game board -- we store it.
 
 This leads to seven arrays of positions, one for each piece.
-For example, there is exactly 67 ways to put the pink piece on the board, in particular it can be placed on the positions $\left\{1, 2, 9, 15\right\}$ or $\left\{2, 3, 10, 16\right\}$.
+For example, there is exactly 67 ways to put the pink piece on the board, in particular it can be placed on the positions { $1, 2, 9, 15$ } or { $2, 3, 10, 16$ }.
 
 Having these arrays permits to formulate a single constraint with MiniZinc:
 ```MiniZinc
